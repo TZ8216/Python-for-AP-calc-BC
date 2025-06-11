@@ -1,0 +1,40 @@
+def linspace(start,stop,num):
+	step=(stop-start)/(num-1)
+	return[start+i*step for i in range(num)]
+	domain=linspace(0.1,10,1000)
+def f(x):
+	return #enter a function
+h=0.0001
+def checkmonotony():
+	positive_count=0
+	negative_count=0
+	for x in domain:
+		df=(f(x+h)-f(x))/h
+		if df>0:
+			positive_count=positive_count+1
+		elif df<0:
+			negative_count=negative_count+1
+		if positive_count>0 and negative_count=0:
+			print("the function is increasing")
+		elif negative_count>0 and positive_count=0:
+			print("the function is decreasing")
+		else:
+			print("the function is neither increasing nor decreasing")
+checkmonotony()
+
+def checksecondderivative():
+	positive=0
+	negative=0
+	for x in domain:
+		second=(f(x+h)-2*f(x)+f(x-h))/h**2
+		if second>0:
+			positive=positive+1
+		elif second<0:
+			negative=negative+1
+		if positive>0 and negative==0:
+			print("the function is concave up")
+		elif negative>0 and positive==0:
+			print("the function is concave down")
+		else:
+			print("the function is neither concave up nor concave down")
+checksecondderivative()
