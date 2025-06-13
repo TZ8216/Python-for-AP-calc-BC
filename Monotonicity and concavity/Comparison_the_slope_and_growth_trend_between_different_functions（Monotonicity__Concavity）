@@ -1,4 +1,61 @@
-def linspace(start,stop,num):
+### Python-for-AP-calc-BC
+1. Comparison the slope and growth trend between different functions（Monotonicity & Concavity）
+### **First step: define its first derivative(slope)**
+For the definition of the slope of tangent to a function:
+![tangent](https://latex.codecogs.com/svg.image?tangent=\lim_{h\to0}\frac{f(x&plus;h)-f(x)}{h})
+# code：
+def f(x):
+	return function
+h=0.000000001 #h→0
+def d(f,x):
+	return (f(x+h)-f(x))/h
+ ### **Second step: Find the overall monotony of a function in its domain.**
+**The definition of Monotonicity**
+- **Strictly increasing function:**
+    A function f(x) is **increasing** on an interval 
+    For any x1,x2∈I, x1<x2  ⟹  f(x1)<f(x2)
+  # For calculus (find the derivative of a function)
+  f\prime(x)>0 \iff increasing
+  - **Strictly decreasing function:**
+    A function f(x) is **decreasing** on an interval 
+    For any x1,x2∈I, x1<x2  ⟹  f(x1)>f(x2)
+    f\prime(x)<0 \iff decreasing
+### **Third step: find the second derivative of the function (growth trend)**
+  We all know:
+
+$$
+f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+$$
+
+The same reason:
+
+$$
+f''(x) = \lim_{h \to 0} \frac{f'(x) - f'(x - h)}{h}
+$$
+
+$$
+= \frac{\frac{f(x+h)-f(x)}{h} - \frac{f(x)-f(x-h)}{h}}{h}
+$$
+
+$$
+f''(x) = \frac{f(x + h) - 2f(x) + f(x - h)}{h^2}
+$$
+def checksecondderivative():
+  second=(f(x+h)-2*f(x)+f(x-h))/h**2
+positive=0
+negative=0
+if second>0:
+  positive=positive+1
+elif second<0:
+  negative=negative+1
+if positive>0 and negative==0: #explain the definition of the increasing function
+  print("the function is concave up")
+elif negative>0 and positive==0: #explain the definition of the decreasing function
+  print("the function is concave down")
+else:
+  print("the function is neither concave up or concave down")
+ # Final framework：
+  def linspace(start,stop,num):
 	step=(stop-start)/(num-1)
 	return[start+i*step for i in range(num)]
 	domain=linspace(0.1,10,1000)
